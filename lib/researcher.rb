@@ -7,7 +7,6 @@ class Researcher < ActiveRecord::Base
   validate :name, presence: true
   validate :age, presence: true
 
-
   def insects
     Insect.where(researcher_id: id)
   end
