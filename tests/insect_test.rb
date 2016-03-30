@@ -30,39 +30,39 @@ class InsectTest < Minitest::Test
     i = Insect.new(name: "Fuzzy mantis", description: "Fierce and cuddly", location: "In a tree")
     i.researcher_id = 1
     i.genus_id = 1
-    assert(i.my_valid?, "should be valid at creation")
+    assert(i.valid?, "should be valid at creation")
 
     i.name = nil
-    refute(i.my_valid?, "should be invalid without a name")
+    refute(i.valid?, "should be invalid without a name")
 
     i.name = ""
-    refute(i.my_valid?, "should be invalid with an empty name")
+    refute(i.valid?, "should be invalid with an empty name")
   end
 
   def test_validator_should_fail_insect_with_no_description
     i = Insect.new(name: "Fuzzy mantis", description: "Fierce and cuddly", location: "In a tree")
     i.researcher_id = 1
     i.genus_id = 1
-    assert(i.my_valid?, "should be valid at creation")
+    assert(i.valid?, "should be valid at creation")
 
     i.description = nil
-    refute(i.my_valid?, "should be invalid without a description")
+    refute(i.valid?, "should be invalid without a description")
 
     i.description = ""
-    refute(i.my_valid?, "should be invalid with an empty description")
+    refute(i.valid?, "should be invalid with an empty description")
   end
 
   def test_validator_should_fail_insect_with_no_location
     i = Insect.new(name: "Fuzzy mantis", description: "Fierce and cuddly", location: "In a tree")
     i.researcher_id = 1
     i.genus_id = 1
-    assert(i.my_valid?, "should be valid at creation")
+    assert(i.valid?, "should be valid at creation")
 
     i.location = nil
-    refute(i.my_valid?, "should be invalid without a location")
+    refute(i.valid?, "should be invalid without a location")
 
     i.location = ""
-    refute(i.my_valid?, "should be invalid with an empty location")
+    refute(i.valid?, "should be invalid with an empty location")
   end
 
 end

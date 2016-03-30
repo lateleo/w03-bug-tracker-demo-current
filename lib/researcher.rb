@@ -5,7 +5,7 @@
 class Researcher < ActiveRecord::Base
 
   validate :name, presence: true
-  validate :age, presence: true
+  validate :age, presence: true, numericality: {:greater_than_or_equal_to 2}
 
   def insects
     Insect.where(researcher_id: id)
