@@ -4,14 +4,9 @@
 
 class Researcher < ActiveRecord::Base
 
-  def my_valid?
-    # return true if all attributes are good, false otherwise
-    name? && (age.to_i > 1)
-  end
+  validate :name, presence: true
+  validate :age, presence: true
 
-  def my_save
-    my_valid? ? save : false
-  end
 
   def insects
     Insect.where(researcher_id: id)

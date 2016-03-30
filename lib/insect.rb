@@ -2,19 +2,10 @@ require "active_record"
 
 class Insect < ActiveRecord::Base
   # name:, location:, description:, seen_by:
-
-  def my_valid?
-    # return true if all attributes are good, false otherwise
-    name? && location? && description? && researcher_id? && genus_id?
-  end
-
-  def my_save
-    if my_valid?
-      save
-    else
-      false
-    end
-  end
+  validate :name, presence: true
+  validate :description, presence: true
+  validate :researcher_id, presence: true
+  validate :genus_id, presence: true
 
   def researcher
     Researcher.find_by_id(researcher_id)

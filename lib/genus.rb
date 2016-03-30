@@ -3,6 +3,9 @@ require "active_record"
 # + family
 class Genus < ActiveRecord::Base
 
+  validate :name, presence: true
+  validate :family, presence: true
+  
   def insects
     Insect.where(genus_id: id)
   end
