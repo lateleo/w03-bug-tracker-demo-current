@@ -2,10 +2,11 @@ require "active_record"
 
 class Insect < ActiveRecord::Base
   # name:, location:, description:, seen_by:
-  validate :name, presence: true
-  validate :description, presence: true
-  validate :researcher_id, presence: true
-  validate :genus_id, presence: true
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :researcher_id, presence: true
+  validates :genus_id, presence: true
+  validates :location, presence: true
 
   def researcher
     Researcher.find_by_id(researcher_id)
