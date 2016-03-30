@@ -1,5 +1,6 @@
 require "active_record"
-
+# + name
+# + family
 class Genus < ActiveRecord::Base
 
   def insects
